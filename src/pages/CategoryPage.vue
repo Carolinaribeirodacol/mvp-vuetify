@@ -9,7 +9,7 @@
 
     <v-data-table :items="categories" :headers :loading>
       <template v-slot:item.status="{ item }">
-        <ChipStatus :status="item.status">
+        <ChipStatus :status="item.status" />
       </template>
 
       <template v-slot:item.actions="{ item }">
@@ -60,8 +60,7 @@ async function getCategories() {
   try {
     categories.value = await categoryService.getAll()
   } catch (error) {
-    notification.error(
-      'Não foi possível buscar as categorias. Erro: ' + error)
+    notification.error('Não foi possível buscar as categorias. Erro: ' + error)
   } finally {
     loading.value = false
   }
