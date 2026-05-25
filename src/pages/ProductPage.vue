@@ -9,7 +9,7 @@
 
     <v-data-table :items="products" :headers>
       <template v-slot:item.status="{ item }">
-        <ChipStatus :status="item.status">
+        <ChipStatus :status="item.status" />
       </template>
 
       <template v-slot:item.actions="{ item }">
