@@ -15,6 +15,12 @@ export function createBaseService(resource) {
     return response.data
   }
 
+  async function getTotal(params = {}) {
+    const response = await api.get(resource, { params })
+
+    return response.data?.length || 0
+  }
+
   async function create(data) {
     const response = await api.post(resource, data)
 
@@ -39,5 +45,6 @@ export function createBaseService(resource) {
     create,
     update,
     remove,
+    getTotal,
   }
 }
